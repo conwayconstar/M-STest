@@ -35,7 +35,8 @@ export default {
             const id = product.id,
                 record = state.products.find(v => v.id === id);
 
-            let total = 0, qty = record.quantity;
+
+            let total = 0, qty = record ? record.quantity : 0;
 
             if (id === 'J01' && record && qty > 1) {
                 const discount = state.discounts.find(v => v.id === id);
@@ -49,6 +50,10 @@ export default {
                 } else if (qty > 1) {
                     discount.total = total;
                 }
+            }
+
+            if(!state.products.find(v => v.id === 'J01')) {
+                state.discounts =  state.discounts.filter(v => v.id !== 'J01');
             }
         },
 
