@@ -1,5 +1,7 @@
 <template>
-    $END$
+    <nav class="navbar navbar-expand-lg navbar-light | bg-light">
+        <a class="navbar-brand" href="#">M&S</a>
+    </nav>
 </template>
 
 <script>
