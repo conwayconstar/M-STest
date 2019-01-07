@@ -58,8 +58,8 @@ export default {
         },
 
         HANDLE_TOTAL(state) {
-            const total = sum(state.products, 'price', 'quantity'),
-                discountTotal = sum(state.discounts, 'total'),
+            const total =  Math.floor(sum(state.products, 'price', 'quantity') * 100) / 100,
+                discountTotal = Math.floor(sum(state.discounts, 'total')* 100) / 100,
                 discountedTotal = total - discountTotal;
 
             switch (true) {
